@@ -9,7 +9,9 @@
     # Global Variables
     factory(root.angular)
 ) this, (angular)->
-  angular.module('infinite-scroll', [])
+  MODULE_NAME = 'infinite-scroll'
+
+  angular.module(MODULE_NAME, [])
   .value('THROTTLE_MILLISECONDS', null)
   .directive 'infiniteScroll', ['$rootScope', '$window', '$interval', 'THROTTLE_MILLISECONDS', \
                                     ($rootScope, $window, $interval, THROTTLE_MILLISECONDS) ->
@@ -215,4 +217,5 @@
         $interval.cancel checkInterval
       )
   ]
-  .name
+  
+  return MODULE_NAME

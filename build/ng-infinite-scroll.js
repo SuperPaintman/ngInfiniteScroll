@@ -1,4 +1,4 @@
-/* ng-infinite-scroll - v1.2.1 - 2016-05-21 */
+/* ng-infinite-scroll - v1.2.1 - 2016-06-29 */
 (function(root, factory) {
   if (typeof module !== 'undefined' && module.exports) {
     return module.exports = factory(require('angular'));
@@ -8,7 +8,9 @@
     return factory(root.angular);
   }
 })(this, function(angular) {
-  return angular.module('infinite-scroll', []).value('THROTTLE_MILLISECONDS', null).directive('infiniteScroll', [
+  var MODULE_NAME;
+  MODULE_NAME = 'infinite-scroll';
+  angular.module(MODULE_NAME, []).value('THROTTLE_MILLISECONDS', null).directive('infiniteScroll', [
     '$rootScope', '$window', '$interval', 'THROTTLE_MILLISECONDS', function($rootScope, $window, $interval, THROTTLE_MILLISECONDS) {
       return {
         scope: {
@@ -191,5 +193,6 @@
         }
       };
     }
-  ]).name;
+  ]);
+  return MODULE_NAME;
 });
